@@ -1,0 +1,1 @@
+# mahongtoto.github.io
