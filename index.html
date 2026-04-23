@@ -37,7 +37,7 @@
 
         .marquee-content {
             display: inline-block;
-            animation: marquee 30s linear infinite;
+            animation: marquee 35s linear infinite;
         }
 
         @keyframes marquee {
@@ -45,132 +45,153 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- CARD FULL IMAGE 4 KOLOM --- */
+        /* --- KOTAK CARD UTAMA --- */
         .luxury-card {
-            background-size: cover;
-            background-position: center;
-            border: 2px solid rgba(191, 149, 63, 0.6);
-            border-radius: 15px;
-            position: relative;
-            height: 520px;
+            background: #111; /* Box Hitam Dasar */
+            border: 1px solid rgba(191, 149, 63, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
             transition: all 0.3s ease;
+            height: 100%;
         }
 
         .luxury-card:hover {
             transform: translateY(-8px);
-            border-color: #fcf6ba;
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+            border-color: #bf953f;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
         }
 
-        .card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%);
-            z-index: 1;
+        /* Area Gambar (Atas) */
+        .image-box {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(191, 149, 63, 0.2);
         }
 
-        /* --- EFEK NOMINAL GLOW BERDENYUT --- */
+        /* --- TEXT BOX HITAM (Bawah) --- */
+        .info-box {
+            background: #000; /* Hitam Pekat agar Teks Jelas */
+            padding: 25px 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Efek Nominal WD Berdenyut */
         .nominal-glow {
             font-size: 1.8rem;
             font-weight: 900;
             color: #ffffff;
-            animation: textPulse 1.5s infinite ease-in-out;
-            position: relative;
-            z-index: 2;
+            animation: textPulse 1.8s infinite ease-in-out;
+            margin: 10px 0 20px 0;
         }
 
         @keyframes textPulse {
-            0%, 100% { transform: scale(1); text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-            50% { transform: scale(1.05); text-shadow: 0 0 25px rgba(255, 215, 0, 1); color: #fff6aa; }
+            0%, 100% { transform: scale(1); text-shadow: 0 0 8px rgba(255, 215, 0, 0.3); }
+            50% { transform: scale(1.03); text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); color: #fff6aa; }
         }
 
         .btn-jp {
-            background: linear-gradient(45deg, #bf953f, #fcf6ba, #aa771c);
+            background: linear-gradient(to bottom, #bf953f, #aa771c);
             color: #000;
             font-weight: 900;
             text-transform: uppercase;
             padding: 14px;
-            border-radius: 10px;
-            display: block;
-            position: relative;
-            z-index: 2;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             transition: 0.3s;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.4);
         }
 
         .btn-jp:hover {
             filter: brightness(1.2);
-            box-shadow: 0 0 15px #fcf6ba;
+            transform: scale(1.02);
         }
     </style>
 </head>
 <body>
 
-    <header class="pt-10 pb-4 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold gold-text tracking-tight uppercase">MAHONG GROUP</h1>
+    <header class="pt-10 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold gold-text uppercase">MAHONG GROUP</h1>
         <p class="text-red-600 text-xs tracking-[0.4em] font-bold mt-2">VVIP TESTIMONY & JACKPOT PROOF</p>
         
         <div class="marquee-container">
             <div class="marquee-content uppercase font-bold text-xs tracking-widest text-yellow-400">
-                💰 BUKTI NYATA KEMENANGAN MEMBER — LUNAS DIBAYAR — PROSES WD TERCEPAT — MAHONG GROUP OFFICIAL — JOIN SEKARANG DAN JADI PEMENANG BERIKUTNYA! 💰
+                💰 BUKTI TRANSAKSI BERHASIL — LUNAS DIBAYAR — MAHONG GROUP OFFICIAL — JOIN SEKARANG DAN JADI PEMENANG BERIKUTNYA! 💰
             </div>
         </div>
     </header>
 
     <main class="max-w-[1400px] mx-auto p-6 pb-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div class="luxury-card" style="background-image: url('dayak4d.png');">
-                <div class="card-overlay"></div>
-                <div class="p-4 flex justify-between items-center relative z-10 bg-black/60">
-                    <span class="font-bold gold-text text-xs uppercase">Dayak4d Official</span>
-                    <span class="text-[9px] text-yellow-200 border border-yellow-500 px-2 py-1 rounded">Verified Payment</span>
+            <div class="luxury-card">
+                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> Dayak4d Official</span>
+                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified Payment</span>
                 </div>
-                <div class="mt-auto p-6 text-center relative z-10">
-                    <p class="text-gray-400 text-[10px] uppercase font-bold mb-1">Withdraw Success</p>
-                    <h2 class="nominal-glow mb-6">Rp 10.000.000</h2>
-                    <a href="#" class="btn-jp">Ikut JP Sekarang</a>
+                <div class="image-box" style="background-image: url('dayak4d.png');"></div>
+                <div class="info-box">
+                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow">Rp 10.000.000</h2>
+                    <a href="#" class="btn-jp">
+                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
+                    </a>
                 </div>
             </div>
 
-            <div class="luxury-card" style="background-image: url('jp2.png');">
-                <div class="card-overlay"></div>
-                <div class="p-4 flex justify-between items-center relative z-10 bg-black/60">
-                    <span class="font-bold gold-text text-xs uppercase">Mahongtoto VIP</span>
-                    <span class="text-[9px] text-yellow-200 border border-yellow-500 px-2 py-1 rounded">High Roller JP</span>
+            <div class="luxury-card">
+                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> Mahongtoto VIP</span>
+                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">High Roller JP</span>
                 </div>
-                <div class="mt-auto p-6 text-center relative z-10">
-                    <p class="text-gray-400 text-[10px] uppercase font-bold mb-1">Withdraw Success</p>
-                    <h2 class="nominal-glow mb-6">Rp 40.022.500</h2>
-                    <a href="#" class="btn-jp">Ikut JP Sekarang</a>
-                </div>
-            </div>
-
-            <div class="luxury-card" style="background-image: url('jp3.png');">
-                <div class="card-overlay"></div>
-                <div class="p-4 flex justify-between items-center relative z-10 bg-black/60">
-                    <span class="font-bold gold-text text-xs uppercase">Dayak4d Official</span>
-                    <span class="text-[9px] text-yellow-200 border border-yellow-500 px-2 py-1 rounded">Verified</span>
-                </div>
-                <div class="mt-auto p-6 text-center relative z-10">
-                    <p class="text-gray-400 text-[10px] uppercase font-bold mb-1">Withdraw Success</p>
-                    <h2 class="nominal-glow mb-6">Rp 5.000.000</h2>
-                    <a href="#" class="btn-jp">Ikut JP Sekarang</a>
+                <div class="image-box" style="background-image: url('jp2.png');"></div>
+                <div class="info-box">
+                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow">Rp 40.022.500</h2>
+                    <a href="#" class="btn-jp">
+                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
+                    </a>
                 </div>
             </div>
 
-            <div class="luxury-card" style="background-image: url('jp4.png');">
-                <div class="card-overlay"></div>
-                <div class="p-4 flex justify-between items-center relative z-10 bg-black/60">
-                    <span class="font-bold gold-text text-xs uppercase">Mahongtoto VIP</span>
-                    <span class="text-[9px] text-yellow-200 border border-yellow-500 px-2 py-1 rounded">Verified</span>
+            <div class="luxury-card">
+                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> Dayak4d Official</span>
+                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified</span>
                 </div>
-                <div class="mt-auto p-6 text-center relative z-10">
-                    <p class="text-gray-400 text-[10px] uppercase font-bold mb-1">Withdraw Success</p>
-                    <h2 class="nominal-glow mb-6">Rp 15.000.000</h2>
-                    <a href="#" class="btn-jp">Ikut JP Sekarang</a>
+                <div class="image-box" style="background-image: url('jp3.png');"></div>
+                <div class="info-box">
+                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow">Rp 5.000.000</h2>
+                    <a href="#" class="btn-jp">
+                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
+                    </a>
+                </div>
+            </div>
+
+            <div class="luxury-card">
+                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> Mahongtoto VIP</span>
+                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified</span>
+                </div>
+                <div class="image-box" style="background-image: url('jp4.png');"></div>
+                <div class="info-box">
+                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow">Rp 15.000.000</h2>
+                    <a href="#" class="btn-jp">
+                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
+                    </a>
                 </div>
             </div>
 
