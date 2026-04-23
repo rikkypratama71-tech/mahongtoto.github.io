@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP MEMBER - MAHONG GROUP EXCLUSIVE</title>
+    <title>BUKTI JACKPOT MEMBER - MAHONG GROUP </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -12,7 +12,7 @@
         body { 
             font-family: 'Poppins', sans-serif; 
             background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%); 
-            min-height: 100-vh;
+            min-height: 100vh;
         }
         
         .gold-text {
@@ -38,15 +38,8 @@
         }
 
         @keyframes textPulse {
-            0%, 100% { 
-                transform: scale(1);
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-            }
-            50% { 
-                transform: scale(1.05);
-                text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-                color: #fff6aa;
-            }
+            0%, 100% { transform: scale(1); text-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+            50% { transform: scale(1.05); text-shadow: 0 0 25px rgba(255, 215, 0, 0.8); color: #fff6aa; }
         }
 
         .btn-jp {
@@ -64,24 +57,48 @@
             box-shadow: 0 0 35px rgba(252, 246, 186, 0.8);
         }
 
-        .animate-glow {
-            animation: pulse-glow 2s infinite;
-        }
-
+        .animate-glow { animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 5px rgba(191, 149, 63, 0.4); }
             50% { box-shadow: 0 0 20px rgba(191, 149, 63, 0.8); }
             100% { box-shadow: 0 0 5px rgba(191, 149, 63, 0.4); }
         }
+
+        /* --- ANIMASI TEKS BERJALAN (MARQUEE SANTAI) --- */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: rgba(255, 215, 0, 0.05);
+            border-top: 1px solid rgba(191, 149, 63, 0.3);
+            border-bottom: 1px solid rgba(191, 149, 63, 0.3);
+            padding: 12px 0;
+            margin-top: 20px;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite; /* Kecepatan diperlambat jadi 30 detik */
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body class="text-white">
 
-    <header class="p-10 text-center relative overflow-hidden">
+    <header class="p-10 text-center relative overflow-hidden pb-4">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-yellow-600/10 blur-[120px]"></div>
-        <h1 class="text-5xl font-extrabold gold-text mb-2 tracking-tighter">MAHONG GROUP</h1>
+        <h1 class="text-5xl font-extrabold gold-text mb-2 tracking-tighter uppercase">MAHONG GROUP</h1>
         <div class="h-1 w-24 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto"></div>
-        <p class="text-gray-400 mt-4 text-sm tracking-[0.2em] uppercase font-bold">VVIP Testimony & Jackpot Proof</p>
+        
+        <div class="marquee-container">
+            <div class="marquee-content uppercase font-bold text-sm tracking-widest text-yellow-500">
+                VVIP TESTIMONY & JACKPOT PROOF — BUKTI NYATA KEMENANGAN MEMBER — LUNAS DIBAYAR — MAHONG GROUP OFFICIAL — PROSES WITHDRAW TERCEPAT & TERPERCAYA — GABUNG SEKARANG DAN JADI PEMENANG BERIKUTNYA! —
+            </div>
+        </div>
     </header>
 
     <main class="max-w-5xl mx-auto p-6">
@@ -90,7 +107,7 @@
             <div class="luxury-card overflow-hidden group">
                 <div class="p-5 border-b border-white/5 flex justify-between items-center bg-white/5">
                     <span class="flex items-center gap-2 font-bold gold-text uppercase">
-                        <i class="fas fa-gem"></i> Dayak4d Official
+                        <i class="fas fa-gem"></i> Dayak4d
                     </span>
                     <span class="text-[10px] text-gray-400 bg-black/50 px-3 py-1 rounded-full border border-white/10">Verified Payment</span>
                 </div>
@@ -145,7 +162,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/NOMOR_WA_ANDA" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25d366] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] transition hover:scale-110 z-50">
+    <a href="https://wa.me/62xxxxxxxx" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25d366] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] transition hover:scale-110 z-50">
         <i class="fab fa-whatsapp text-3xl text-white"></i>
     </a>
 
