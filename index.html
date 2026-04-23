@@ -47,7 +47,7 @@
 
         /* --- KOTAK CARD UTAMA --- */
         .luxury-card {
-            background: #111; /* Box Hitam Dasar */
+            background: #111; 
             border: 1px solid rgba(191, 149, 63, 0.3);
             border-radius: 20px;
             overflow: hidden;
@@ -63,33 +63,33 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
         }
 
-        /* Area Gambar (Atas) */
+        /* AREA GAMBAR DI-PANJANGIN SIKIT & ANTI POTONG */
         .image-box {
             width: 100%;
-            height: 350px;
-            background-size: cover;
+            height: 480px; /* Tinggi saya naikkan dari 350px ke 480px agar lebih panjang */
+            background-size: contain; /* PENTING: Supaya gambar tidak kepotong (full view) */
+            background-repeat: no-repeat;
             background-position: center;
+            background-color: #050505; /* Warna background jika gambar lebih ramping */
             border-bottom: 1px solid rgba(191, 149, 63, 0.2);
         }
 
-        /* --- TEXT BOX HITAM (Bawah) --- */
+        /* --- TEXT BOX HITAM --- */
         .info-box {
-            background: #000; /* Hitam Pekat agar Teks Jelas */
-            padding: 25px 20px;
+            background: #000;
+            padding: 20px;
             text-align: center;
-            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        /* Efek Nominal WD Berdenyut */
         .nominal-glow {
             font-size: 1.8rem;
             font-weight: 900;
             color: #ffffff;
             animation: textPulse 1.8s infinite ease-in-out;
-            margin: 10px 0 20px 0;
+            margin: 5px 0 15px 0;
         }
 
         @keyframes textPulse {
@@ -109,13 +109,8 @@
             justify-content: center;
             gap: 10px;
             transition: 0.3s;
-            font-size: 14px;
+            font-size: 13px;
             box-shadow: 0 4px 15px rgba(191, 149, 63, 0.4);
-        }
-
-        .btn-jp:hover {
-            filter: brightness(1.2);
-            transform: scale(1.02);
         }
     </style>
 </head>
@@ -138,13 +133,13 @@
             <div class="luxury-card">
                 <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
                     <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> Dayak4d Official</span>
-                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified Payment</span>
+                    <span class="text-[8px] text-gray-400 border border-gray-800 px-2 py-1 rounded">Verified</span>
                 </div>
                 <div class="image-box" style="background-image: url('dayak4d.png');"></div>
                 <div class="info-box">
-                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <p class="text-gray-500 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow">Rp 10.000.000</h2>
-                    <a href="https://bio.site/mahongofficial" class="btn-jp">
+                    <a href="LINK_DAFTAR_DISINI" target="_blank" class="btn-jp">
                         <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
                     </a>
                 </div>
@@ -153,49 +148,19 @@
             <div class="luxury-card">
                 <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
                     <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> Mahongtoto VIP</span>
-                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">High Roller JP</span>
+                    <span class="text-[8px] text-gray-400 border border-gray-800 px-2 py-1 rounded">High Roller</span>
                 </div>
-                <div class="image-box" style="background-image: url('bosmahong.png');"></div>
+                <div class="image-box" style="background-image: url('jp2.png');"></div>
                 <div class="info-box">
-                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
-                    <h2 class="nominal-glow">Rp 28.500.000</h2>
-                    <a href="https://bio.site/mahongofficial" class="btn-jp">
+                    <p class="text-gray-500 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow">Rp 40.022.500</h2>
+                    <a href="LINK_DAFTAR_DISINI" target="_blank" class="btn-jp">
                         <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
                     </a>
                 </div>
             </div>
 
-            <div class="luxury-card">
-                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
-                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> Dayak4d Official</span>
-                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified</span>
-                </div>
-                <div class="image-box" style="background-image: url('jp3.png');"></div>
-                <div class="info-box">
-                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
-                    <h2 class="nominal-glow">Rp 5.000.000</h2>
-                    <a href="#" class="btn-jp">
-                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
-                    </a>
-                </div>
             </div>
-
-            <div class="luxury-card">
-                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
-                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> Mahongtoto VIP</span>
-                    <span class="text-[8px] text-gray-400 bg-black/50 px-2 py-1 rounded border border-gray-800">Verified</span>
-                </div>
-                <div class="image-box" style="background-image: url('jp4.png');"></div>
-                <div class="info-box">
-                    <p class="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Withdraw Success</p>
-                    <h2 class="nominal-glow">Rp 15.000.000</h2>
-                    <a href="#" class="btn-jp">
-                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
-                    </a>
-                </div>
-            </div>
-
-        </div>
     </main>
 
     <footer class="py-12 text-center bg-black border-t border-yellow-900/40">
