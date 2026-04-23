@@ -11,10 +11,43 @@
         
         body { 
             font-family: 'Poppins', sans-serif; 
-            background: #0a0a0a;
+            /* Background Kombinasi Merah Hitam Emas */
+            background: radial-gradient(circle at top, #450a0a 0%, #0a0a0a 100%);
             color: white;
             margin: 0;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- EFEK KARAKTER SLOT DI BACKGROUND --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 10%;
+            left: -5%;
+            width: 400px;
+            height: 600px;
+            background: url('https://i.ibb.co/vYxZz8r/zeus-png.png') no-repeat; /* Link Karakter Zeus */
+            background-size: contain;
+            opacity: 0.15;
+            z-index: -1;
+            filter: grayscale(100%) brightness(50%);
+        }
+
+        /* --- EFEK KOIN EMAS BERJATUHAN --- */
+        .coin {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background: url('https://i.ibb.co/M9F7XpX/gold-coin.png') no-repeat;
+            background-size: contain;
+            z-index: -1;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
         .gold-text {
@@ -24,13 +57,12 @@
             filter: drop-shadow(0 2px 4px rgba(191, 149, 63, 0.5));
         }
 
-        /* --- TEXT BERJALAN (MARQUEE) --- */
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
-            background: linear-gradient(to right, #000, #300000, #000);
-            border-top: 2px solid #aa771c;
-            border-bottom: 2px solid #aa771c;
+            background: linear-gradient(to right, transparent, #7f1d1d, transparent);
+            border-top: 1px solid #aa771c;
+            border-bottom: 1px solid #aa771c;
             padding: 12px 0;
             margin-top: 20px;
         }
@@ -45,43 +77,37 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- KOTAK CARD UTAMA --- */
         .luxury-card {
-            background: #111; 
+            background: rgba(17, 17, 17, 0.9); 
             border: 1px solid rgba(191, 149, 63, 0.3);
             border-radius: 20px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
-            height: 100%;
+            backdrop-filter: blur(10px);
         }
 
         .luxury-card:hover {
             transform: translateY(-8px);
-            border-color: #bf953f;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
+            border-color: #ff0000;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
         }
 
-        /* AREA GAMBAR DI-PANJANGIN SIKIT & ANTI POTONG */
         .image-box {
             width: 100%;
-            height: 480px; /* Tinggi saya naikkan dari 350px ke 480px agar lebih panjang */
-            background-size: contain; /* PENTING: Supaya gambar tidak kepotong (full view) */
+            height: 480px;
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            background-color: #050505; /* Warna background jika gambar lebih ramping */
+            background-color: #050505;
             border-bottom: 1px solid rgba(191, 149, 63, 0.2);
         }
 
-        /* --- TEXT BOX HITAM --- */
         .info-box {
-            background: #000;
+            background: linear-gradient(to bottom, #000, #1a0000);
             padding: 20px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .nominal-glow {
@@ -109,12 +135,23 @@
             justify-content: center;
             gap: 10px;
             transition: 0.3s;
-            font-size: 13px;
             box-shadow: 0 4px 15px rgba(191, 149, 63, 0.4);
         }
     </style>
 </head>
 <body>
+
+    <script>
+        function createCoin() {
+            const coin = document.createElement('div');
+            coin.classList.add('coin');
+            coin.style.left = Math.random() * 100 + "vw";
+            coin.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(coin);
+            setTimeout(() => { coin.remove(); }, 5000);
+        }
+        setInterval(createCoin, 300);
+    </script>
 
     <header class="pt-10 text-center">
         <h1 class="text-5xl md:text-6xl font-extrabold gold-text uppercase">MAHONG GROUP</h1>
@@ -131,13 +168,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
             <div class="luxury-card">
-                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
                     <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> DAYAK4D </span>
-                    <span class="text-[8px] text-gray-400 border border-gray-800 px-2 py-1 rounded">Verified Payment</span>
+                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified Payment</span>
                 </div>
                 <div class="image-box" style="background-image: url('dayak4d.png');"></div>
                 <div class="info-box">
-                    <p class="text-gray-500 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow">Rp 10.000.000</h2>
                     <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">
                         <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
@@ -146,13 +183,13 @@
             </div>
 
             <div class="luxury-card">
-                <div class="p-3 bg-[#1a1a1a] flex justify-between items-center px-4">
+                <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
                     <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> BOSMAHONG</span>
-                    <span class="text-[8px] text-gray-400 border border-gray-800 px-2 py-1 rounded">Verified Payment</span>
+                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified Payment</span>
                 </div>
                 <div class="image-box" style="background-image: url('bosmahong.png');"></div>
                 <div class="info-box">
-                    <p class="text-gray-500 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow">Rp 28.500.000</h2>
                     <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">
                         <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
@@ -160,10 +197,10 @@
                 </div>
             </div>
 
-            </div>
+        </div>
     </main>
 
-    <footer class="py-12 text-center bg-black border-t border-yellow-900/40">
+    <footer class="py-12 text-center bg-black/80 border-t border-yellow-900/40">
         <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">© 2026 MAHONG GROUP — VVIP </p>
     </footer>
 
