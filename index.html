@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP JACKPOT - MAHONG GROUP EXCLUSIVE</title>
+    <title>PORTAL JACKPOT - MAHONG GROUP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,43 +11,10 @@
         
         body { 
             font-family: 'Poppins', sans-serif; 
-            /* Background Kombinasi Merah Hitam Emas */
             background: radial-gradient(circle at top, #450a0a 0%, #0a0a0a 100%);
             color: white;
             margin: 0;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* --- EFEK KARAKTER SLOT DI BACKGROUND --- */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 10%;
-            left: -5%;
-            width: 400px;
-            height: 600px;
-            background: url('https://ibb.co.com/Xr8Jt8Sb') no-repeat; /* Link Karakter Zeus */
-            background-size: contain;
-            opacity: 0.15;
-            z-index: -1;
-            filter: grayscale(100%) brightness(50%);
-        }
-
-        /* --- EFEK KOIN EMAS BERJATUHAN --- */
-        .coin {
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            background: url('https://ibb.co.com/Xr8Jt8Sb') no-repeat;
-            background-size: contain;
-            z-index: -1;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
 
         .gold-text {
@@ -57,6 +24,7 @@
             filter: drop-shadow(0 2px 4px rgba(191, 149, 63, 0.5));
         }
 
+        /* --- TEXT BERJALAN (MARQUEE) --- */
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
@@ -77,21 +45,48 @@
             100% { transform: translateX(-100%); }
         }
 
+        /* --- TOMBOL FILTER BO --- */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-btn {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid #bf953f;
+            color: #bf953f;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 11px;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(to bottom, #bf953f, #aa771c);
+            color: #000;
+            box-shadow: 0 0 15px rgba(191, 149, 63, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* --- SISTEM TAB --- */
+        .jp-content { display: none; }
+        .jp-content.active { display: flex; flex-direction: column; }
+
         .luxury-card {
-            background: rgba(17, 17, 17, 0.9); 
+            background: rgba(17, 17, 17, 0.95); 
             border: 1px solid rgba(191, 149, 63, 0.3);
             border-radius: 20px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .luxury-card:hover {
-            transform: translateY(-8px);
-            border-color: #ff0000;
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
+            transition: 0.3s;
         }
 
         .image-box {
@@ -101,21 +96,12 @@
             background-repeat: no-repeat;
             background-position: center;
             background-color: #050505;
-            border-bottom: 1px solid rgba(191, 149, 63, 0.2);
-        }
-
-        .info-box {
-            background: linear-gradient(to bottom, #000, #1a0000);
-            padding: 20px;
-            text-align: center;
         }
 
         .nominal-glow {
             font-size: 1.8rem;
             font-weight: 900;
-            color: #ffffff;
             animation: textPulse 1.8s infinite ease-in-out;
-            margin: 5px 0 15px 0;
         }
 
         @keyframes textPulse {
@@ -127,100 +113,117 @@
             background: linear-gradient(to bottom, #bf953f, #aa771c);
             color: #000;
             font-weight: 900;
-            text-transform: uppercase;
             padding: 14px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(191, 149, 63, 0.4);
         }
     </style>
 </head>
 <body>
 
-    <script>
-        function createCoin() {
-            const coin = document.createElement('div');
-            coin.classList.add('coin');
-            coin.style.left = Math.random() * 100 + "vw";
-            coin.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(coin);
-            setTimeout(() => { coin.remove(); }, 5000);
-        }
-        setInterval(createCoin, 300);
-    </script>
-
     <header class="pt-10 text-center">
         <h1 class="text-5xl md:text-6xl font-extrabold gold-text uppercase">MAHONG GROUP</h1>
-        <p class="text-red-600 text-xs tracking-[0.4em] font-bold mt-2">VVIP TESTIMONY & JACKPOT PROOF</p>
+        <p class="text-red-500 text-xs tracking-[0.4em] font-bold mt-2">VVIP TESTIMONY & JACKPOT PROOF</p>
         
         <div class="marquee-container">
             <div class="marquee-content uppercase font-bold text-xs tracking-widest text-yellow-400">
                 💰 BUKTI TRANSAKSI BERHASIL — LUNAS DIBAYAR — MAHONG GROUP OFFICIAL — JOIN SEKARANG DAN JADI PEMENANG BERIKUTNYA! 💰
             </div>
         </div>
+
+        <div class="filter-container mt-8">
+            <button class="filter-btn active" onclick="showBO('all', this)">SEMUA BO</button>
+            <button class="filter-btn" onclick="showBO('mahongtoto', this)">MAHONGTOTO</button>
+            <button class="filter-btn" onclick="showBO('shiojitu', this)">SHIOJITU</button>
+            <button class="filter-btn" onclick="showBO('dayak4d', this)">DAYAK4D</button>
+            <button class="filter-btn" onclick="showBO('hongsuitoto', this)">HONGSUITOTO</button>
+            <button class="filter-btn" onclick="showBO('kaptenjitu', this)">KAPTENJITU</button>
+            <button class="filter-btn" onclick="showBO('botakhoki', this)">BOTAKHOKI</button>
+            <button class="filter-btn" onclick="showBO('bosangka', this)">BOSANGKA</button>
+            <button class="filter-btn" onclick="showBO('bosmahong', this)">BOSMAHONG</button>
+            <button class="filter-btn" onclick="showBO('larasati4d', this)">LARASATI4D</button>
+            <button class="filter-btn" onclick="showBO('nenghoki', this)">NENGHOKI</button>
+            <button class="filter-btn" onclick="showBO('bonengjitu', this)">BONENGJITU</button>
+            <button class="filter-btn" onclick="showBO('landaktoto', this)">LANDAKTOTO</button>
+            <button class="filter-btn" onclick="showBO('santettoto', this)">SANTETTOTO</button>
+            <button class="filter-btn" onclick="showBO('animetoto', this)">ANIMETOTO</button>
+            <button class="filter-btn" onclick="showBO('kopraljitu', this)">KOPRALJITU</button>
+            <button class="filter-btn" onclick="showBO('mulus4d', this)">MULUS4D</button>
+            <button class="filter-btn" onclick="showBO('johortoto', this)">JOHORTOTO</button>
+            <button class="filter-btn" onclick="showBO('ayuhoki', this)">AYUHOKI</button>
+            <button class="filter-btn" onclick="showBO('antohoki', this)">ANTOHOKI</button>
+        </div>
     </header>
 
     <main class="max-w-[1400px] mx-auto p-6 pb-24">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div id="jp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div class="luxury-card">
+            <div class="luxury-card jp-content dayak4d active">
                 <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
-                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> DAYAK4D </span>
-                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified Payment</span>
+                    <span class="font-bold gold-text text-[10px] uppercase">DAYAK4D</span>
+                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified</span>
                 </div>
                 <div class="image-box" style="background-image: url('dayak4d.png');"></div>
-                <div class="info-box">
+                <div class="p-5 text-center bg-black">
                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
-                    <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">WIN : Mahjong Ways</p>
-                    <h2 class="nominal-glow">Rp 10.000.000</h2>
-                    <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">
-                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
-                    </a>
+                    <h2 class="nominal-glow mb-4">Rp 10.000.000</h2>
+                    <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
                 </div>
             </div>
 
-            <div class="luxury-card">
+            <div class="luxury-card jp-content bosmahong active">
                 <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
-                    <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-crown mr-1"></i> BOSMAHONG</span>
-                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified Payment</span>
+                    <span class="font-bold gold-text text-[10px] uppercase">BOSMAHONG</span>
+                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified</span>
                 </div>
                 <div class="image-box" style="background-image: url('bosmahong.png');"></div>
-                <div class="info-box">
+                <div class="p-5 text-center bg-black">
                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
-                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">WIN : Mahjong Ways</p>
-                    <h2 class="nominal-glow">Rp 28.500.000</h2>
-                    <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">
-                        <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
-                    </a>
+                    <h2 class="nominal-glow mb-4">Rp 28.500.000</h2>
+                    <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
                 </div>
             </div>
 
-            <div class="luxury-card">
-    <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
-        <span class="font-bold gold-text text-[10px] uppercase"><i class="fas fa-gem mr-1"></i> BOSANGKA </span>
-        <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified Payment</span>
-    </div>
-    <div class="image-box" style="background-image: url('bosangka.png');"></div>
-    <div class="info-box">
-        <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
-        <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">WIN : Sweet Bonanza 1000</p>
-        <h2 class="nominal-glow">Rp 29.010.000</h2>
-        <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">
-            <i class="fas fa-play-circle"></i> IKUT JP SEKARANG
-        </a>
-    </div>
-</div>
+            <div class="luxury-card jp-content bosangka active">
+                <div class="p-3 bg-red-900/20 flex justify-between items-center px-4">
+                    <span class="font-bold gold-text text-[10px] uppercase">BOSANGKA</span>
+                    <span class="text-[8px] text-yellow-200 border border-yellow-700 px-2 py-1 rounded">Verified</span>
+                </div>
+                <div class="image-box" style="background-image: url('bosangka.png');"></div>
+                <div class="p-5 text-center bg-black">
+                    <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
+                    <h2 class="nominal-glow mb-4">Rp 29.010.000</h2>
+                    <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
+                </div>
+            </div>
 
         </div>
     </main>
 
-    <footer class="py-12 text-center bg-black/80 border-t border-yellow-900/40">
-        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">© 2026 MAHONG GROUP — VVIP </p>
-    </footer>
+    <script>
+        function showBO(brand, btn) {
+            // Update tombol active
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
+            // Filter Kartu Jackpot
+            const cards = document.querySelectorAll('.jp-content');
+            cards.forEach(card => {
+                if (brand === 'all') {
+                    card.classList.add('active');
+                } else {
+                    if (card.classList.contains(brand)) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
