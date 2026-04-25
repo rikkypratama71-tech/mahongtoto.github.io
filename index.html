@@ -9,18 +9,18 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
         
-       body { 
-    font-family: 'Poppins', sans-serif; 
-    /* GANTI 'background_kamu.jpg' DENGAN NAMA FILE GAMBAR KAMU */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                url('backgorund.png'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Biar background-nya diem pas di-scroll */
-    color: white;
-    margin: 0;
-    overflow-x: hidden;
-}
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            /* Menggunakan overlay agar teks tetap terbaca jelas di atas gambar mewah */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('backgorund.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
         .gold-text {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -33,11 +33,12 @@
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
-            background: linear-gradient(to right, transparent, #7f1d1d, transparent);
+            background: rgba(127, 29, 29, 0.5);
             border-top: 1px solid #aa771c;
             border-bottom: 1px solid #aa771c;
             padding: 12px 0;
             margin-top: 20px;
+            backdrop-filter: blur(5px);
         }
 
         .marquee-content {
@@ -59,10 +60,12 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .filter-btn {
-            background: rgba(26, 26, 26, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid #bf953f;
             color: #bf953f;
             padding: 8px 15px;
@@ -72,7 +75,7 @@
             cursor: pointer;
             text-transform: uppercase;
             font-size: 11px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -87,29 +90,31 @@
         .jp-content.active { display: flex; flex-direction: column; }
 
         .luxury-card {
-            background: rgba(17, 17, 17, 0.95); 
+            background: rgba(10, 10, 10, 0.85); 
             border: 1px solid rgba(191, 149, 63, 0.3);
             border-radius: 20px;
             overflow: hidden;
             transition: 0.3s;
             height: 100%;
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 10;
         }
 
-        /* --- AREA GAMBAR ADAPTIF (UKURAN OTOMATIS) --- */
         .image-container {
             width: 100%;
-            height: 480px; /* Tinggi maksimal kotak */
+            height: 480px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #050505;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
         }
 
         .image-container img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Gambar menyesuaikan tanpa terpotong */
+            object-fit: contain;
             border-radius: 10px;
         }
 
@@ -145,7 +150,9 @@
 </head>
 <body>
 
-    <header class="pt-10 text-center">
+    <canvas id="coinCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 5;"></canvas>
+
+    <header class="pt-10 text-center relative z-10">
         <h1 class="text-5xl md:text-6xl font-extrabold gold-text uppercase">MAHONG GROUP</h1>
         <p class="text-red-500 text-xs tracking-[0.4em] font-bold mt-2">VVIP TESTIMONY & JACKPOT PROOF</p>
         
@@ -166,20 +173,10 @@
             <button class="filter-btn" onclick="showBO('bosangka', this)">BOSANGKA</button>
             <button class="filter-btn" onclick="showBO('bosmahong', this)">BOSMAHONG</button>
             <button class="filter-btn" onclick="showBO('larasati4d', this)">LARASATI4D</button>
-            <button class="filter-btn" onclick="showBO('nenghoki', this)">NENGHOKI</button>
-            <button class="filter-btn" onclick="showBO('bonengjitu', this)">BONENGJITU</button>
-            <button class="filter-btn" onclick="showBO('landaktoto', this)">LANDAKTOTO</button>
-            <button class="filter-btn" onclick="showBO('santettoto', this)">SANTETTOTO</button>
-            <button class="filter-btn" onclick="showBO('animetoto', this)">ANIMETOTO</button>
-            <button class="filter-btn" onclick="showBO('kopraljitu', this)">KOPRALJITU</button>
-            <button class="filter-btn" onclick="showBO('mulus4d', this)">MULUS4D</button>
-            <button class="filter-btn" onclick="showBO('johortoto', this)">JOHORTOTO</button>
-            <button class="filter-btn" onclick="showBO('ayuhoki', this)">AYUHOKI</button>
-            <button class="filter-btn" onclick="showBO('antohoki', this)">ANTOHOKI</button>
-        </div>
+            </div>
     </header>
 
-    <main class="max-w-[1400px] mx-auto p-6 pb-24">
+    <main class="max-w-[1400px] mx-auto p-6 pb-24 relative z-10">
         <div id="jp-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
             <div class="luxury-card jp-content dayak4d active">
@@ -190,7 +187,7 @@
                 <div class="image-container">
                     <img src="dayak4d.png" alt="Jackpot Dayak4d">
                 </div>
-                <div class="p-5 text-center bg-black">
+                <div class="p-5 text-center bg-black/60">
                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow mb-4">Rp 10.000.000</h2>
                     <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
@@ -205,7 +202,7 @@
                 <div class="image-container">
                     <img src="bosmahong.png" alt="Jackpot Bosmahong">
                 </div>
-                <div class="p-5 text-center bg-black">
+                <div class="p-5 text-center bg-black/60">
                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow mb-4">Rp 28.500.000</h2>
                     <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
@@ -220,7 +217,7 @@
                 <div class="image-container">
                     <img src="mhg.png" alt="Jackpot Mahongtoto">
                 </div>
-                <div class="p-5 text-center bg-black">
+                <div class="p-5 text-center bg-black/60">
                     <p class="text-gray-400 text-[9px] uppercase font-bold tracking-widest">Withdraw Success</p>
                     <h2 class="nominal-glow mb-4">Rp 30.052.000</h2>
                     <a href="https://bio.site/mahongofficial" target="_blank" class="btn-jp">IKUT JP SEKARANG</a>
@@ -231,6 +228,7 @@
     </main>
 
     <script>
+        // SCRIPT FILTER BO
         function showBO(brand, btn) {
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(b => b.classList.remove('active'));
@@ -238,12 +236,10 @@
 
             const cards = document.querySelectorAll('.jp-content');
             cards.forEach(card => {
-                // Konversi filter ke huruf kecil agar cocok dengan class
                 const filter = brand.toLowerCase();
                 if (filter === 'all') {
                     card.classList.add('active');
                 } else {
-                    // Cek apakah class kartu mengandung nama BO (case insensitive)
                     if (card.classList.contains(filter)) {
                         card.classList.add('active');
                     } else {
@@ -252,6 +248,68 @@
                 }
             });
         }
+
+        // SCRIPT EFEK KOIN JATUH
+        const canvas = document.getElementById('coinCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const coins = [];
+        const coinImage = new Image();
+        coinImage.src = 'https://www.pngall.com/wp-content/uploads/4/Golden-Coin-PNG-Free-Download.png'; 
+
+        class Coin {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * -canvas.height;
+                this.size = Math.random() * 15 + 10;
+                this.speed = Math.random() * 2 + 1;
+                this.angle = Math.random() * 360;
+                this.spin = Math.random() * 4 - 2;
+            }
+            update() {
+                this.y += this.speed;
+                this.angle += this.spin;
+                if (this.y > canvas.height) {
+                    this.y = -50;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle * Math.PI / 180);
+                ctx.drawImage(coinImage, -this.size/2, -this.size/2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < 40; i++) {
+                coins.push(new Coin());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            coins.forEach(coin => {
+                coin.update();
+                coin.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        coinImage.onload = () => {
+            init();
+            animate();
+        };
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
 </html>
