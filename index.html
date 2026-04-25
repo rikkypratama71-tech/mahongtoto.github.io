@@ -11,7 +11,6 @@
         
         body { 
             font-family: 'Poppins', sans-serif; 
-            /* Menggunakan overlay agar teks tetap terbaca jelas di atas gambar mewah */
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                         url('backgorund.png'); 
             background-size: cover;
@@ -29,7 +28,7 @@
             filter: drop-shadow(0 2px 4px rgba(191, 149, 63, 0.5));
         }
 
-        /* --- TEXT BERJALAN (MARQUEE) --- */
+        /* --- TEXT BERJALAN --- */
         .marquee-container {
             overflow: hidden;
             white-space: nowrap;
@@ -51,7 +50,7 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- TOMBOL FILTER BO --- */
+        /* --- TOMBOL FILTER --- */
         .filter-container {
             display: flex;
             flex-wrap: wrap;
@@ -150,7 +149,7 @@
 </head>
 <body>
 
-    <canvas id="coinCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 5;"></canvas>
+    <canvas id="coinCanvas" style="position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;"></canvas>
 
     <header class="pt-10 text-center relative z-10">
         <h1 class="text-5xl md:text-6xl font-extrabold gold-text uppercase">MAHONG GROUP</h1>
@@ -173,7 +172,7 @@
             <button class="filter-btn" onclick="showBO('bosangka', this)">BOSANGKA</button>
             <button class="filter-btn" onclick="showBO('bosmahong', this)">BOSMAHONG</button>
             <button class="filter-btn" onclick="showBO('larasati4d', this)">LARASATI4D</button>
-            </div>
+        </div>
     </header>
 
     <main class="max-w-[1400px] mx-auto p-6 pb-24 relative z-10">
@@ -249,7 +248,7 @@
             });
         }
 
-        // SCRIPT EFEK KOIN JATUH
+        // SCRIPT EFEK KOIN JATUH (OPTIMIZED)
         const canvas = document.getElementById('coinCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -258,16 +257,18 @@
 
         const coins = [];
         const coinImage = new Image();
-        coinImage.src = 'https://www.pngall.com/wp-content/uploads/4/Golden-Coin-PNG-Free-Download.png'; 
+        
+        // GANTI 'koin.png' DENGAN NAMA FILE GAMBAR KAMU
+        coinImage.src = 'koin.png'; 
 
         class Coin {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * -canvas.height;
-                this.size = Math.random() * 15 + 10;
-                this.speed = Math.random() * 2 + 1;
+                this.size = Math.random() * 20 + 15; // Ukuran sedikit lebih besar
+                this.speed = Math.random() * 3 + 2;
                 this.angle = Math.random() * 360;
-                this.spin = Math.random() * 4 - 2;
+                this.spin = Math.random() * 5 - 2.5;
             }
             update() {
                 this.y += this.speed;
@@ -287,7 +288,7 @@
         }
 
         function init() {
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 50; i++) { // Jumlah koin 50 biar ramai
                 coins.push(new Coin());
             }
         }
@@ -304,6 +305,11 @@
         coinImage.onload = () => {
             init();
             animate();
+        };
+
+        // Jika gambar gagal dimuat, tetap jalankan init agar tidak error
+        coinImage.onerror = () => {
+            console.error("Gagal memuat gambar koin. Pastikan nama file benar!");
         };
 
         window.addEventListener('resize', () => {
