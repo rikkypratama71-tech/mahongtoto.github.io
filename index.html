@@ -9,13 +9,18 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
         
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background: radial-gradient(circle at top, #450a0a 0%, #0a0a0a 100%);
-            color: white;
-            margin: 0;
-            overflow-x: hidden;
-        }
+       body { 
+    font-family: 'Poppins', sans-serif; 
+    /* GANTI 'background_kamu.jpg' DENGAN NAMA FILE GAMBAR KAMU */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('background_kamu.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Biar background-nya diem pas di-scroll */
+    color: white;
+    margin: 0;
+    overflow-x: hidden;
+}
 
         .gold-text {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
